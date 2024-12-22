@@ -2,8 +2,8 @@
 class Puck {
   float x = width / 2;
   float y = height / 2;
-  float xspeed = int(random(-4, 4));
-  float yspeed = int(random(-4, 4));
+  float xspeed = int(random(-7, 7));
+  float yspeed = int(random(-7, 7));
 
 
 
@@ -14,26 +14,32 @@ class Puck {
 
     // this is to make sure xspeed random() never hits zero
     if (xspeed == 0) {
-      xspeed = xspeed + 1;
+      xspeed = xspeed + 2;
     }
     // same thing with yspeed random
     if (yspeed == 0) {
-      yspeed = yspeed - 1;
+      yspeed = yspeed - 3;
     }
     
     
   }
-
-
-
+  
+  void reset() {
+    // this shouldn't get called in draw() or the puck will stay center screen
+    x = width / 2 - 12.5;
+    y = height / 2 - 12.5;
+    xspeed = int(random(-7, 7));
+    yspeed = int(random(-7, 7));
+  }
+  
   void edges() {
     // bounces when the puck touches the screen
-    if (y < 0 || y > height) {
+    if (y < 0 + 12.5 || y > height - 12.5) {
       yspeed *= -1;
     }
     // calls reset() when the puck reaches either side
-    if (x > width || x < 0) {
-      xspeed *= -1;
+    if (x > width - 12.5 || x < 0 + 12.5) {
+      reset();
     }
   }
 
