@@ -1,5 +1,6 @@
 // puck object
 class Puck {
+  // puck properties
   float x = width / 2;
   float y = height / 2;
   float xspeed = int(random(-7, 7));
@@ -34,11 +35,11 @@ class Puck {
   
   void edges() {
     // bounces when the puck touches the screen
-    if (y < 0 + 12.5 || y > height - 12.5) {
+    if (y < 0 + 25 || y > height) {
       yspeed *= -1;
     }
     // calls reset() when the puck reaches either side
-    if (x > width - 12.5 || x < 0 + 12.5) {
+    if (x > width + 25 || x < 0 - 12.5) {
       reset();
     }
   }
