@@ -6,6 +6,8 @@ class Paddle {
   float w = 25;
   float h = 150;
   
+  float y_change = 0;
+  
   Paddle (boolean left) {
     // code for if the paddle is left or right
     if (left) {
@@ -15,8 +17,16 @@ class Paddle {
     }
   }
   
-  void move() {
-    
+  void update() {
+    // the speed that updates for the paddles
+    y += y_change;;
+    // stoping the paddle from going off screen
+    y = constrain(y, 0 + 75, height - 75);
+  }
+  
+  void move(float steps) {
+    //
+    y_change = steps;
   }
   
   void show() {
