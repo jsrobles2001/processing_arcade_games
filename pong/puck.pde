@@ -5,8 +5,23 @@ class Puck {
   float y = height / 2;
   float xspeed = int(random(-7, 7));
   float yspeed = int(random(-7, 7));
+  float puck_radius = 25;
 
-
+  Puck() {
+  }
+  
+  
+  // checking if the puck hits the right or left paddles
+  void checkPaddleLeft(Paddle p) {
+    if (y < p.y + p.h / 2 && y > p.y - p.h / 2 && x - puck_radius < p.x + p.w / 2) {
+      xspeed *= -1;
+    }
+  }
+    void checkPaddleRight(Paddle p) {
+    if (y < p.y + p.h / 2 && y > p.y - p.h / 2 && x + puck_radius > p.x - p.w / 2 + 25) {
+      xspeed *= -1;
+    }
+  }
 
   void update() {
     // giving the puck velocity
@@ -21,10 +36,8 @@ class Puck {
     if (yspeed == 0) {
       yspeed = yspeed - 3;
     }
-    
-    
   }
-  
+
   void reset() {
     // this shouldn't get called in draw() or the puck will stay center screen
     x = width / 2 - 12.5;
@@ -32,14 +45,14 @@ class Puck {
     xspeed = int(random(-7, 7));
     yspeed = int(random(-7, 7));
   }
-  
+
   void edges() {
     // bounces when the puck touches the screen
     if (y < 0 + 25 || y > height) {
       yspeed *= -1;
     }
     // calls reset() when the puck reaches either side
-    if (x > width + 25 || x < 0 - 12.5) {
+    if (x > width + 25 || x < 0) {
       reset();
     }
   }
@@ -50,6 +63,6 @@ class Puck {
   void show() {
     fill(255);
     noStroke();
-    square(x - 12.5, y - 12.5, 25); // the square gets drawn at the top left, subtracting by half it's size will put it fully centered
+    square(x - 12.5, y - 12.5, puck_radius); // the square gets drawn at the top left, subtracting by half it's size will put it fully centered
   }
 }

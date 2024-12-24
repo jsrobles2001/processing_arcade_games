@@ -13,7 +13,10 @@ void setup() {
 
 void draw() {
   background(50, 200, 75);
-
+  
+  puck.checkPaddleLeft(left);
+  puck.checkPaddleRight(right);
+  
   left.show();
   right.show();
   left.update();
