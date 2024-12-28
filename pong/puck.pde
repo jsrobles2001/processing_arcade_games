@@ -3,11 +3,14 @@ class Puck {
   // puck properties
   float x = width / 2;
   float y = height / 2;
-  float xspeed = int(random(-7, 7));
-  float yspeed = int(random(-7, 7));
+  //float xspeed = int(random(-7, 7));
+  //float yspeed = int(random(-7, 7));
+  float xspeed;
+  float yspeed;
   float puck_radius = 25;
 
   Puck() {
+    reset();
   }
   
   
@@ -42,8 +45,13 @@ class Puck {
     // this shouldn't get called in draw() or the puck will stay center screen
     x = width / 2 - 12.5;
     y = height / 2 - 12.5;
-    xspeed = int(random(-7, 7));
-    yspeed = int(random(-7, 7));
+    
+    //xspeed = int(random(-7, 7));
+    //yspeed = int(random(-7, 7));
+    
+    float angle = random(TWO_PI);
+    xspeed = 2 * cos(angle);
+    yspeed = 5 * sin(angle);
   }
 
   void edges() {
