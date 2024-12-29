@@ -12,8 +12,8 @@ class Puck {
   Puck() {
     reset();
   }
-  
-  
+
+
   // checking if the puck hits the left paddle for collision
   void checkPaddleLeft(Paddle p) {
     if (y < p.y + p.h / 2 && y > p.y - p.h / 2 && x - puck_radius < p.x + p.w / 2) {
@@ -21,7 +21,7 @@ class Puck {
     }
   }
   // checking if the puck hits the right paddle for collision
-    void checkPaddleRight(Paddle p) {
+  void checkPaddleRight(Paddle p) {
     if (y < p.y + p.h / 2 && y > p.y - p.h / 2 && x + puck_radius > p.x - p.w / 2 + 25) {
       xspeed *= -1;
     }
@@ -46,12 +46,12 @@ class Puck {
     // this shouldn't get called in draw() or the puck will stay center screen
     x = width / 2 - 12.5;
     y = height / 2 - 12.5;
-    
+
     //xspeed = int(random(-7, 7));
     //yspeed = int(random(-7, 7));
-    
+
     float angle = random(TWO_PI);
-    xspeed = 2 * cos(angle);
+    xspeed = 5 * cos(angle);
     yspeed = 5 * sin(angle);
   }
 
