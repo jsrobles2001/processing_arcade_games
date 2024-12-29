@@ -14,12 +14,13 @@ class Puck {
   }
   
   
-  // checking if the puck hits the right or left paddles
+  // checking if the puck hits the left paddle for collision
   void checkPaddleLeft(Paddle p) {
     if (y < p.y + p.h / 2 && y > p.y - p.h / 2 && x - puck_radius < p.x + p.w / 2) {
       xspeed *= -1;
     }
   }
+  // checking if the puck hits the right paddle for collision
     void checkPaddleRight(Paddle p) {
     if (y < p.y + p.h / 2 && y > p.y - p.h / 2 && x + puck_radius > p.x - p.w / 2 + 25) {
       xspeed *= -1;
@@ -37,7 +38,7 @@ class Puck {
     }
     // same thing with yspeed random
     if (yspeed == 0) {
-      yspeed = yspeed - 3;
+      yspeed = yspeed - 2;
     }
   }
 
