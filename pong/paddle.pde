@@ -5,7 +5,6 @@ class Paddle {
   float y = height / 2;
   float w = 25;
   float h = 150;
-
   float y_change = 0;
 
   Paddle (boolean left) {
@@ -25,9 +24,10 @@ class Paddle {
   }
 
   void move(float steps) {
+    // gets the paddles to move
     y_change = steps;
   }
-
+  // drawing paddles
   void show() {
     rectMode(CENTER);
     rect(x, y, w, h);
