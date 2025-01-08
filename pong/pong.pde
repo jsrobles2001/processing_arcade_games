@@ -1,4 +1,11 @@
 // credit to coding train YT channel
+/*
+
+-- GLITCHES --
+- if both paddles move at the same time and one stops, both stop for some reason
+- the puck goes through the paddle and bounces like crazy
+
+*/
 // start of the program
 
 Puck puck;
