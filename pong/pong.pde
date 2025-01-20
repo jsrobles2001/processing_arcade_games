@@ -23,6 +23,7 @@ void setup() {
   left = new Paddle(true);
   right = new Paddle(false);
   Arcade = createFont("ARCADECLASSIC.TTF", 50); // the size needs to be noticable
+  frameRate(30);
 }
 
 void draw() {
@@ -41,8 +42,8 @@ void draw() {
   // drawing the score
   fill(255);
   textFont(Arcade);
-  text(leftScore, 32, 50);
-  text(rightScore, width - 64, 50);
+  text(leftScore, 96, 50);
+  text(rightScore, width - 128, 50);
 }
 
 void keyReleased() {

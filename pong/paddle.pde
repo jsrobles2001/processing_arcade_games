@@ -3,7 +3,7 @@ class Paddle {
   // paddle properties
   float x;
   float y = height / 2;
-  float w = 25;
+  float w = 75;
   float h = 150;
   float y_change = 0;
 

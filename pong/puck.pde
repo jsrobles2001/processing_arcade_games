@@ -26,9 +26,13 @@ class Puck {
         //x = p.x + p.w / 2 + puck_radius;
         xspeed *= -1;
         xspeed++;
+      if (y < p.y) {
+        yspeed *= -1;
+        yspeed--;
       }
     }
   }
+}
   // checking if the puck hits the right paddle for collision
   void checkPaddleRight(Paddle p) {
     if (y < p.y + p.h / 2 && y > p.y - p.h / 2 && x + puck_radius > p.x - p.w / 2 + 25) {
@@ -42,9 +46,13 @@ class Puck {
         //x = p.x - p.w / 2 - puck_radius;
         xspeed *= -1;
         xspeed--;
+      if (y > p.y) {
+        yspeed *= -1;
+        yspeed++;
       }
     }
   }
+}
   // updating every frame
   void update() {
     // giving the puck velocity
