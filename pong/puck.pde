@@ -105,13 +105,13 @@ class Puck {
     if (x > width + 25) {
       //leftScore++;
       //reset();
-      xspeed *= -1;
+      xspeed *= -1; // debug
     }
 
     if (x < 0) {
       //rightScore++;
       //reset();
-      xspeed *= -1;
+      xspeed *= -1; // debug
     }
   }
   // drawing puck

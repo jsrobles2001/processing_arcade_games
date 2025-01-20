@@ -23,7 +23,7 @@ void setup() {
   left = new Paddle(true);
   right = new Paddle(false);
   Arcade = createFont("ARCADECLASSIC.TTF", 50); // the size needs to be noticable
-  frameRate(30);
+  //frameRate(30);
 }
 
 void draw() {
