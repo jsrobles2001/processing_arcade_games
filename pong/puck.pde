@@ -38,7 +38,7 @@ class Puck {
 }
   // checking if the puck hits the right paddle for collision
   void checkPaddleRight(Paddle p) {
-    if (y < p.y + p.h / 2 && y > p.y - p.h / 2 && x + puck_radius > p.x - p.w / 2) {
+    if (y < p.y + p.h / 2 && y > p.y - p.h / 2 && x + puck_radius > p.x - p.w / 2 + puck_radius) {
       if (x < p.x) {
         // mapping the right paddle's segments to change the puck angle, doesn't work
         //float diff = y + (p.y + p.h / 2);
@@ -51,7 +51,7 @@ class Puck {
         xspeed--;
       if (y > p.y + p.w) {
         //yspeed *= -1;
-       // yspeed--;
+        //yspeed--;
       } if (y < p.y + p.w) {
         //yspeed *= -1;
         //yspeed--;
@@ -103,15 +103,15 @@ class Puck {
     }
     // calls reset() when the puck reaches either side
     if (x > width + 25) {
-      //leftScore++;
-      //reset();
-      xspeed *= -1; // debug
+      leftScore++;
+      reset();
+      //xspeed *= -1; // debug
     }
 
     if (x < 0) {
-      //rightScore++;
-      //reset();
-      xspeed *= -1; // debug
+      rightScore++;
+      reset();
+      //xspeed *= -1; // debug
     }
   }
   // drawing puck
