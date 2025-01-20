@@ -26,16 +26,19 @@ class Puck {
         //x = p.x + p.w / 2 + puck_radius;
         xspeed *= -1;
         xspeed++;
-      if (y < p.y) {
-        yspeed *= -1;
-        yspeed--;
+      if (y > p.y + p.w) {
+        //yspeed *= -1;
+        //yspeed++;
+      } if (y < p.y + p.w) {
+        //yspeed *= -1;
+        //yspeed++;
       }
     }
   }
 }
   // checking if the puck hits the right paddle for collision
   void checkPaddleRight(Paddle p) {
-    if (y < p.y + p.h / 2 && y > p.y - p.h / 2 && x + puck_radius > p.x - p.w / 2 + 25) {
+    if (y < p.y + p.h / 2 && y > p.y - p.h / 2 && x + puck_radius > p.x - p.w / 2) {
       if (x < p.x) {
         // mapping the right paddle's segments to change the puck angle, doesn't work
         //float diff = y + (p.y + p.h / 2);
@@ -46,9 +49,12 @@ class Puck {
         //x = p.x - p.w / 2 - puck_radius;
         xspeed *= -1;
         xspeed--;
-      if (y > p.y) {
-        yspeed *= -1;
-        yspeed++;
+      if (y > p.y + p.w) {
+        //yspeed *= -1;
+       // yspeed--;
+      } if (y < p.y + p.w) {
+        //yspeed *= -1;
+        //yspeed--;
       }
     }
   }
@@ -97,13 +103,15 @@ class Puck {
     }
     // calls reset() when the puck reaches either side
     if (x > width + 25) {
-      leftScore++;
-      reset();
+      //leftScore++;
+      //reset();
+      xspeed *= -1;
     }
 
     if (x < 0) {
-      rightScore++;
-      reset();
+      //rightScore++;
+      //reset();
+      xspeed *= -1;
     }
   }
   // drawing puck
