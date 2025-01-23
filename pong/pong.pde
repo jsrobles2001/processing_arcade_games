@@ -17,6 +17,7 @@ PFont Arcade; // 8-bit font
 
 int leftScore = 0;
 int rightScore = 0;
+boolean playerOneUp, playerOneDown, playerTwoUp, playerTwoDown;
 
 void setup() {
   size(1000, 600);
@@ -48,21 +49,69 @@ void draw() {
 }
 
 void keyReleased() {
-  left.move(0);
-  right.move(0);
+  
+    switch(key) {
+   case 'A':
+   case 'a':
+     playerOneUp = false;
+     break;
+   case 'Z':
+   case 'z':
+     playerOneDown = false;
+     break;
+   case 'K':
+   case 'k':
+     playerTwoUp = false;
+     break;
+   case 'M':
+   case 'm':
+     playerTwoDown = false;
+     break;
+  }
+  
+    if (playerOneUp == false) {
+    left.move(0);
+  } if (playerOneDown == false) {
+    left.move(0);
+  }
+
+  if (playerTwoUp == false) {
+    right.move(0);
+  } if (playerTwoDown == false) {
+    right.move(0);
+  }
 }
 
 void keyPressed() {
-
-  if (key == 'a') {
+  
+  switch(key) {
+   case 'A':
+   case 'a':
+     playerOneUp = true;
+     break;
+   case 'Z':
+   case 'z':
+     playerOneDown = true;
+     break;
+   case 'K':
+   case 'k':
+     playerTwoUp = true;
+     break;
+   case 'M':
+   case 'm':
+     playerTwoDown = true;
+     break;
+  }
+  
+  if (playerOneUp == true) {
     left.move(-10);
-  } else if (key == 'z') {
+  } if (playerOneDown == true) {
     left.move(10);
   }
 
-  if (key == 'k') {
+  if (playerTwoUp == true) {
     right.move(-10);
-  } else if (key == 'm') {
+  } if (playerTwoDown == true) {
     right.move(10);
   }
 }
