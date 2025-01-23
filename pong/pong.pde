@@ -17,7 +17,7 @@ PFont Arcade; // 8-bit font
 
 int leftScore = 0;
 int rightScore = 0;
-boolean playerOneUp, playerOneDown, playerTwoUp, playerTwoDown;
+boolean playerLeftUp, playerLeftDown, playerRightUp, playerRightDown;
 
 void setup() {
   size(1000, 600);
@@ -46,6 +46,17 @@ void draw() {
   textFont(Arcade);
   text(leftScore, 96, 50);
   text(rightScore, width - 128, 50);
+  
+  leftPlayer();
+  //if (playerTwoUp) {
+    //right.move(-10);
+  //} else if (playerTwoUp == false) {
+    //right.move(0);
+  //} if (playerTwoDown) {
+    //right.move(10);
+  //} else if (playerTwoDown == false) {
+    //left.move(0);
+  //}
 }
 
 void keyReleased() {
@@ -53,33 +64,34 @@ void keyReleased() {
     switch(key) {
    case 'A':
    case 'a':
-     playerOneUp = false;
+     playerLeftUp = false;
      break;
    case 'Z':
    case 'z':
-     playerOneDown = false;
+     playerLeftDown = false;
      break;
    case 'K':
    case 'k':
-     playerTwoUp = false;
+     playerRightUp = false;
      break;
    case 'M':
    case 'm':
-     playerTwoDown = false;
+     playerRightDown = false;
      break;
   }
   
-    if (playerOneUp == false) {
-    left.move(0);
-  } if (playerOneDown == false) {
-    left.move(0);
-  }
-
-  if (playerTwoUp == false) {
-    right.move(0);
-  } if (playerTwoDown == false) {
-    right.move(0);
-  }
+  //if (playerOneUp == false) {
+    //left.move(0);
+  //}
+  //if (playerOneDown == false) {
+    //left.move(0);
+  //}
+  //if (playerTwoUp == false) {
+    //right.move(0);
+  //}
+  //if (playerTwoDown == false) {
+    //right.move(0);
+  //}
 }
 
 void keyPressed() {
@@ -87,31 +99,53 @@ void keyPressed() {
   switch(key) {
    case 'A':
    case 'a':
-     playerOneUp = true;
+     playerLeftUp = true;
+     playerLeftDown = false;
      break;
    case 'Z':
    case 'z':
-     playerOneDown = true;
+     playerLeftDown = true;
+     playerLeftUp = false;
      break;
    case 'K':
    case 'k':
-     playerTwoUp = true;
+     playerRightUp = true;
      break;
    case 'M':
    case 'm':
-     playerTwoDown = true;
+     playerRightDown = true;
      break;
   }
   
-  if (playerOneUp == true) {
+  //if (playerOneUp == true) {
+    //left.move(-10);
+  //}
+  //if (playerOneDown == true) {
+    //left.move(10);
+  //}
+  //if (playerTwoUp == true) {
+    //right.move(-10);
+  //}
+  //if (playerTwoDown == true) {
+    //right.move(10);
+  //}
+}
+
+void leftPlayer() {
+  keyReleased();
+  keyPressed();
+  
+  if (playerLeftUp) {
     left.move(-10);
-  } if (playerOneDown == true) {
+  }
+  else if (playerLeftUp == false) {
+    left.move(0);
+  }
+  if (playerLeftDown) {
     left.move(10);
   }
-
-  if (playerTwoUp == true) {
-    right.move(-10);
-  } if (playerTwoDown == true) {
-    right.move(10);
+  else if (playerLeftDown == false) {
+    left.move(0);
   }
+  
 }
