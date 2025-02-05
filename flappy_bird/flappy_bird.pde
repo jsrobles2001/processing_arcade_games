@@ -1,22 +1,16 @@
 // credit to
 
-float x;
-float y;
-float radius = 50;
-
+Bird bird;
 
 void setup () {
   
   size(412, 618);
   background(0);
-  x = width / 4;
-  y = height / 3.25;
+  bird = new Bird();
 }
 
 void draw () {
   
-  noStroke();
-  fill(250, 200, 75);
-  circle(x, y, radius);
+  bird.show();
   
 }
