@@ -38,6 +38,8 @@ void draw() {
   right.show();
   left.update();
   right.update();
+  left.move(0);
+  right.move(0);
   puck.update();
   puck.edges();
   puck.show();
