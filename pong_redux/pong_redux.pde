@@ -1,0 +1,49 @@
+// credit to coding train YT channel
+// https://youtu.be/IIrC5Qcb2G4?feature=shared
+
+/*
+~~TO-DO LIST~~
+* Add states for title and results
+* Add paddles
+*/
+
+// VARIABLES
+Puck puck;
+
+PFont Arcade; // 8-bit font
+
+String currentState = "";
+String[] states = {"title", "gameloop", "results"};
+
+int leftScore = 0;
+int rightScore = 0;
+int loop = 1; // for repeat()'s while loop
+
+
+// SETUP
+void setup() {
+  size(1200, 600);
+  puck = new Puck();
+  Arcade = createFont("ARCADECLASSIC.TTF", 50); // the size needs to be noticable
+
+  
+}
+
+// RENDERING
+void draw() {
+  background(50, 200, 100);
+  puck.update();
+  puck.edges();
+  puck.show();
+  
+}
+
+// GAME LOOP
+void repeat() {
+  for (;;) {    
+    
+    
+    
+    
+  }
+}
