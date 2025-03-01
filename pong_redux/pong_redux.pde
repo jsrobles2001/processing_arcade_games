@@ -9,6 +9,8 @@
 
 // VARIABLES
 Puck puck;
+Paddle left;
+Paddle right;
 
 PFont Arcade; // 8-bit font
 
@@ -17,7 +19,6 @@ String[] states = {"title", "gameloop", "results"};
 
 int leftScore = 0;
 int rightScore = 0;
-int loop = 1; // for repeat()'s while loop
 
 
 // SETUP
@@ -35,6 +36,10 @@ void draw() {
   puck.update();
   puck.edges();
   puck.show();
+  
+  textFont(Arcade);
+  text(leftScore, width / 2 - 432, 50);
+  text(rightScore, width - 192, 50);
   
 }
 
