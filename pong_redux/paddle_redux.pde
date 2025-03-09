@@ -15,40 +15,51 @@ class Paddle {
   Paddle (boolean left) {
     // code for if the paddle is left or right
     if (left) {
-      x = w;
+      x = w + w; // the x position is doubled t
     } else {
-      x = width - w;
+      x = width - w - w; // the position mirrors the left
     }
   }
 
-  void update (boolean left) {
-    
-    if (left) {
+  void inputs (boolean upOne) {
+
+    if (upOne) {
       velocityOne -= changeVelocity;
-    if (velocityOne < -maxVelocity) {
-       
+      if (velocityOne < -maxVelocity) {
+        velocityOne = -maxVelocity;
+      }
     }
-    
+    if (downOne) {
+      velocityOne += changeVelocity;
+      if (velocityOne > maxVelocity) {
+        velocityOne = maxVelocity;
+      }
+    } else {
+      if (velocityOne < changeVelocity)
+      {
+        velocityOne = 0;
+      } else if (velocityOne < 0)
+      {
+        velocityOne += changeVelocity;
+      } else if (velocityOne > 0)
+      {
+        velocityOne -= changeVelocity;
+      }
     }
-    
-    
-    
-    
-    if (left) {
+
+    y += velocityOne;
+    if (y < 0) {
+      y = 0;
+    }
+    if (y < height) {
+      y = height;
+    } else {
       y += velocityOne;
       if (y < 0) {
         y = 0;
       }
       if (y < height) {
         y = height;
-      } else {
-        y += velocityOne;
-        if (y < 0) {
-          y = 0;
-        }
-        if (y < height) {
-          y = height;
-        }
       }
     }
   }

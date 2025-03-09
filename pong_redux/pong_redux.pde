@@ -25,6 +25,8 @@ int rightScore = 0;
 void setup() {
   size(1200, 600);
   puck = new Puck();
+  left = new Paddle(true);
+  right = new Paddle(false);
   Arcade = createFont("ARCADECLASSIC.TTF", 50); // the size needs to be noticable
 
   
@@ -36,6 +38,8 @@ void draw() {
   puck.update();
   puck.edges();
   puck.show();
+  left.show();
+  right.show();
   
   textFont(Arcade);
   text(leftScore, width / 2 - 432, 50);
