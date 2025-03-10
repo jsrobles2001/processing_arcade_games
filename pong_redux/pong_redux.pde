@@ -35,11 +35,12 @@ void setup() {
 // RENDERING
 void draw() {
   background(50, 200, 100);
+  puck.show();
   puck.update();
   puck.edges();
-  puck.show();
   left.show();
   right.show();
+  left.update(upOne);
   
   textFont(Arcade);
   text(leftScore, width / 2 - 432, 50);

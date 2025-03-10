@@ -1,3 +1,6 @@
+// VARIABLES
+boolean upOne, downOne, nullOne, upTwo, downTwo, nullTwo;
+
 // paddle object
 class Paddle {
   // paddle properties
@@ -7,10 +10,8 @@ class Paddle {
   float h = 150;
   float velocityOne;
   float velocityTwo;
-  float changeVelocity = 0.25;
-  float maxVelocity = 4;
-  boolean upOne, downOne, upTwo, downTwo;
-
+  float changeVelocity = 0.025;
+  float maxVelocity = 2;
 
   Paddle (boolean left) {
     // code for if the paddle is left or right
@@ -21,7 +22,7 @@ class Paddle {
     }
   }
 
-  void inputs (boolean upOne) {
+  void update (boolean upOne) {
 
     if (upOne) {
       velocityOne -= changeVelocity;
@@ -34,37 +35,37 @@ class Paddle {
       if (velocityOne > maxVelocity) {
         velocityOne = maxVelocity;
       }
-    } else {
-      if (velocityOne < changeVelocity)
-      {
+    } 
+      if (velocityOne < changeVelocity) {
         velocityOne = 0;
-      } else if (velocityOne < 0)
-      {
+      } else if (velocityOne < 0) {
         velocityOne += changeVelocity;
-      } else if (velocityOne > 0)
-      {
+      } else if (velocityOne > 0) {
         velocityOne -= changeVelocity;
       }
-    }
+
+
+
 
     y += velocityOne;
     if (y < 0) {
-      y = 0;
+      y = 0 + 75;
     }
-    if (y < height) {
-      y = height;
-    } else {
-      y += velocityOne;
-      if (y < 0) {
-        y = 0;
-      }
-      if (y < height) {
-        y = height;
-      }
+    if (y > height) {
+      y = height - 75;
     }
   }
+  
+  void keyReleased() {
+    
+    
+    
+  }
 
-  void move() {
+  void keyPressed() {
+    
+    
+    
   }
 
   // drawing paddles
