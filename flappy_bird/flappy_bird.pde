@@ -1,5 +1,6 @@
-// credit to Coding Train YT Channel
+// Credit to Coding Train YT Channel
 // https://youtu.be/aKiyCeIuwn4?feature=shared
+// The base of some of this code is from there
 
 Bird bird;
 
