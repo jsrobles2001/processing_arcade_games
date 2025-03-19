@@ -14,33 +14,28 @@ void draw () {
   background(0);
   
   bird.show();
-  bird.gravity();
+  bird.update();
   bird.bottom();
   bird.flapping();
 }
 
 void update() {
-  
-  
-  
-}
-
-void keyReleased() {
-  
-    switch(key) {
-   case 'F':
-   case 'f':
-     playerPressUp = false;
-     break;
-   }
+  for (;;) {    
+    
+    
+  }
 }
 
 void keyPressed() {
   
-  switch(key) {
-   case 'F':
-   case 'f':
-     playerPressUp = true;
-     break;
+  if (key == ' ') {
+    playerPressUp = true;
+  }
+}
+
+void keyReleased() {
+  
+  if (key == ' ') {
+    playerPressUp = false;
   }
 }
