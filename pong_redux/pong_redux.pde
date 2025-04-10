@@ -40,7 +40,9 @@ void draw() {
   puck.edges();
   left.show();
   right.show();
-  left.update(upOne);
+  left.update();
+  left.keyPressed();
+  left.keyReleased();
   
   textFont(Arcade);
   text(leftScore, width / 2 - 432, 50);

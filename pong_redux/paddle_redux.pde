@@ -10,7 +10,7 @@ class Paddle {
   float h = 150;
   float velocityOne;
   float velocityTwo;
-  float changeVelocity = 0.025;
+  float changeVelocity = 1;
   float maxVelocity = 2;
 
   Paddle (boolean left) {
@@ -22,49 +22,81 @@ class Paddle {
     }
   }
 
-  void update (boolean upOne) {
+  void update() {
 
-    if (upOne) {
+    if (upOne == true) {
       velocityOne -= changeVelocity;
       if (velocityOne < -maxVelocity) {
         velocityOne = -maxVelocity;
-      }
+      } 
     }
-    if (downOne) {
+    
+    if (downOne == true) {
       velocityOne += changeVelocity;
       if (velocityOne > maxVelocity) {
         velocityOne = maxVelocity;
-      }
-    } 
+      } 
+    }
+    
       if (velocityOne < changeVelocity) {
         velocityOne = 0;
-      } else if (velocityOne < 0) {
-        velocityOne += changeVelocity;
-      } else if (velocityOne > 0) {
-        velocityOne -= changeVelocity;
       }
 
 
 
-
+    velocityOne += changeVelocity;
     y += velocityOne;
-    if (y < 0) {
+    if (y < 0 + 75) {
       y = 0 + 75;
     }
-    if (y > height) {
+    if (y > height - 75) {
       y = height - 75;
     }
   }
   
   void keyReleased() {
     
-    
+    switch(key) {
+   case 'A':
+   case 'a':
+     upOne = false;
+     break;
+   case 'Z':
+   case 'z':
+     downOne = false;
+     break;
+   case 'K':
+   case 'k':
+     upTwo = false;
+     break;
+   case 'M':
+   case 'm':
+     downTwo = false;
+     break;
+  }
     
   }
 
   void keyPressed() {
     
-    
+    switch(key) {
+   case 'A':
+   case 'a':
+     upOne = true;
+     break;
+   case 'Z':
+   case 'z':
+     downOne = true;
+     break;
+   case 'K':
+   case 'k':
+     upTwo = true;
+     break;
+   case 'M':
+   case 'm':
+     downTwo = true;
+     break;
+  }
     
   }
 
