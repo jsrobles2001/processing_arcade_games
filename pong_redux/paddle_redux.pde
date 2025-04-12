@@ -10,8 +10,8 @@ class Paddle {
   float h = 150;
   float velocityOne;
   float velocityTwo;
-  float changeVelocity = 1;
-  float maxVelocity = 2;
+  float changeVelocity;
+  float maxVelocity = 3;
 
   Paddle (boolean left) {
     // code for if the paddle is left or right
@@ -24,23 +24,25 @@ class Paddle {
 
   void update() {
 
-    if (upOne == true) {
+    if (upOne == true && upOne != false) {
       velocityOne -= changeVelocity;
       if (velocityOne < -maxVelocity) {
         velocityOne = -maxVelocity;
-      } 
-    }
-    
-    if (downOne == true) {
+      }
+    } else if (downOne == true && upOne != false) {
       velocityOne += changeVelocity;
       if (velocityOne > maxVelocity) {
         velocityOne = maxVelocity;
-      } 
-    }
-    
+      }
+    } else {
       if (velocityOne < changeVelocity) {
         velocityOne = 0;
+      } else if (velocityOne < 0) {
+        velocityOne += changeVelocity;
+      } else if (velocityOne > 0) {
+        velocityOne -= changeVelocity;
       }
+    }
 
 
 
@@ -52,52 +54,52 @@ class Paddle {
     if (y > height - 75) {
       y = height - 75;
     }
+    keyPressed();
+    keyReleased();
   }
-  
+
   void keyReleased() {
-    
+
     switch(key) {
-   case 'A':
-   case 'a':
-     upOne = false;
-     break;
-   case 'Z':
-   case 'z':
-     downOne = false;
-     break;
-   case 'K':
-   case 'k':
-     upTwo = false;
-     break;
-   case 'M':
-   case 'm':
-     downTwo = false;
-     break;
-  }
-    
+    case 'A':
+    case 'a':
+      upOne = false;
+      break;
+    case 'Z':
+    case 'z':
+      downOne = false;
+      break;
+    case 'K':
+    case 'k':
+      upTwo = false;
+      break;
+    case 'M':
+    case 'm':
+      downTwo = false;
+      break;
+    }
   }
 
   void keyPressed() {
-    
+
     switch(key) {
-   case 'A':
-   case 'a':
-     upOne = true;
-     break;
-   case 'Z':
-   case 'z':
-     downOne = true;
-     break;
-   case 'K':
-   case 'k':
-     upTwo = true;
-     break;
-   case 'M':
-   case 'm':
-     downTwo = true;
-     break;
-  }
-    
+    case 'A':
+    case 'a':
+      upOne = true;
+      break;
+    case 'Z':
+    case 'z':
+      downOne = true;
+      break;
+    case 'K':
+    case 'k':
+      upTwo = true;
+      break;
+    case 'M':
+    case 'm':
+      downTwo = true;
+      break;
+    }
   }
 
   // drawing paddles
