@@ -5,9 +5,9 @@ class Bird {
   float radius = 50;   // bird size
   //float ySpeed = 0.25;
   //float ySpeedMax = 5;
-  float gravity = 7.50;
+  float gravity = 4;
   float velocity = 0;
-  float lift = -7.75;
+  float lift = -45;
   boolean gravityOn;
 
   // pulling the bird down with gravity
@@ -42,10 +42,8 @@ class Bird {
   }
 
 
-  void flapping() {
-    if (playerPressUp) {
-      velocity += lift;
-    }
+  void flap() {
+    velocity = lift;
   }
 
 

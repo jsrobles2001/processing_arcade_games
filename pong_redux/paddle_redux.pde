@@ -1,6 +1,3 @@
-// VARIABLES
-boolean upOne, downOne, nullOne, upTwo, downTwo, nullTwo;
-
 // paddle object
 class Paddle {
   // paddle properties
@@ -8,10 +5,10 @@ class Paddle {
   float y = height / 2;
   float w = 25;
   float h = 150;
-  float velocityOne;
-  float velocityTwo;
-  float changeVelocity;
-  float maxVelocity = 3;
+  float velocity = 0;
+  float acceleration = 0;
+  float maxAccel = 2;
+  boolean goingUp, goingDown;
 
   Paddle (boolean left) {
     // code for if the paddle is left or right
@@ -24,83 +21,23 @@ class Paddle {
 
   void update() {
 
-    if (upOne == true && upOne != false) {
-      velocityOne -= changeVelocity;
-      if (velocityOne < -maxVelocity) {
-        velocityOne = -maxVelocity;
-      }
-    } else if (downOne == true && upOne != false) {
-      velocityOne += changeVelocity;
-      if (velocityOne > maxVelocity) {
-        velocityOne = maxVelocity;
-      }
-    } else {
-      if (velocityOne < changeVelocity) {
-        velocityOne = 0;
-      } else if (velocityOne < 0) {
-        velocityOne += changeVelocity;
-      } else if (velocityOne > 0) {
-        velocityOne -= changeVelocity;
-      }
+    if (goingUp) {
+      acceleration = -maxAccel;
     }
-
-
-
-    velocityOne += changeVelocity;
-    y += velocityOne;
-    if (y < 0 + 75) {
-      y = 0 + 75;
+    if (goingDown) {
+      acceleration = maxAccel;
     }
-    if (y > height - 75) {
-      y = height - 75;
+    if (goingUp == goingDown) { // if they're both true or false, accel equals 0
+      acceleration = 0;
     }
-    keyPressed();
-    keyReleased();
+    
+    velocity += acceleration; // acceleration
+    velocity *= 0.89;
+    y += velocity; // velocity
+    y = constrain(y, 0 + h / 2, height - h / 2);
   }
 
-  void keyReleased() {
 
-    switch(key) {
-    case 'A':
-    case 'a':
-      upOne = false;
-      break;
-    case 'Z':
-    case 'z':
-      downOne = false;
-      break;
-    case 'K':
-    case 'k':
-      upTwo = false;
-      break;
-    case 'M':
-    case 'm':
-      downTwo = false;
-      break;
-    }
-  }
-
-  void keyPressed() {
-
-    switch(key) {
-    case 'A':
-    case 'a':
-      upOne = true;
-      break;
-    case 'Z':
-    case 'z':
-      downOne = true;
-      break;
-    case 'K':
-    case 'k':
-      upTwo = true;
-      break;
-    case 'M':
-    case 'm':
-      downTwo = true;
-      break;
-    }
-  }
 
   // drawing paddles
   void show() {

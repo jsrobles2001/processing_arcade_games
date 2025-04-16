@@ -1,6 +1,6 @@
 // Credit to Coding Train YT Channel
 // https://youtu.be/aKiyCeIuwn4?feature=shared
-// The base of some of this code is from there
+// The base of some of this code is from here
 
 Bird bird;
 
@@ -13,30 +13,15 @@ void setup () {
 
 void draw () {
   background(0);
-  
+
   bird.show();
   bird.update();
   bird.bottom();
-  bird.flapping();
 }
 
-void update() {
-  for (;;) {    
-    
-    
-  }
-}
+void keyTyped() {
 
-void keyPressed() {
-  
   if (key == ' ') {
-    playerPressUp = true;
-  }
-}
-
-void keyReleased() {
-  
-  if (key == ' ') {
-    playerPressUp = false;
+    bird.flap();
   }
 }
