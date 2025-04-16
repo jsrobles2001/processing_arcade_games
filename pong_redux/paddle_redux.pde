@@ -7,7 +7,7 @@ class Paddle {
   float h = 150;
   float velocity = 0;
   float acceleration = 0;
-  float maxAccel = 2;
+  float maxAccel = 1.50;
   boolean goingUp, goingDown;
 
   Paddle (boolean left) {

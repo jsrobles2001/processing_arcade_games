@@ -3,8 +3,6 @@ class Bird {
   float x = width / 4;   // bird x position
   float y = height / 3.25;   // bird y position
   float radius = 50;   // bird size
-  //float ySpeed = 0.25;
-  //float ySpeedMax = 5;
   float gravity = 4;
   float velocity = 0;
   float lift = -45;
