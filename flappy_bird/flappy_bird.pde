@@ -13,7 +13,7 @@ boolean playerPressUp;
 
 // SETUP
 void setup () {
-  size(412, 618);
+  size(500, 700);
   bird = new Bird();
 }
 

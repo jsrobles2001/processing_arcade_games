@@ -28,7 +28,7 @@ class Bird {
   // if the bird touches the bottom of the screen
   void bottom() {
     if (y > height - 25) {   // if touching the ground
-      //gravityOn = false;
+      gravityOn = false;
       y = height - 25;
       velocity = 0;
       gravity = 0;
@@ -41,7 +41,7 @@ class Bird {
 
 
   void flap() {
-    velocity = lift;
+    velocity = lift; // player jolts upwards
   }
 
 

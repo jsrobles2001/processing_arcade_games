@@ -24,7 +24,7 @@ int rightScore = 0;
 
 // SETUP
 void setup() {
-  size(1200, 600);
+  size(1200, 700);
   puck = new Puck();
   left = new Paddle(true);
   right = new Paddle(false);

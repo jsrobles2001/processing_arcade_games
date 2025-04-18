@@ -17,8 +17,8 @@ class Puck {
     x = x + xspeed;
     y = y + yspeed;
     // if puck goes too fast, reduce it
-    if (xspeed > 14) {
-      xspeed = 7;
+    if (xspeed > 16) {
+      xspeed = 10;
     }
   }
   // reset position
