@@ -6,12 +6,17 @@ class Puck {
   float xspeed;
   float yspeed;
   float puck_radius = 25;
-  
+  boolean xPaddle, yPaddle, colliding;
+
   Puck() {
     reset();
   }
-  
-   // updating every frame
+
+  void paddleCollision(Paddle left) {
+    xPaddle = puck_radius < left.x;
+  }
+
+  // updating every frame
   void update() {
     // giving the puck velocity
     x = x + xspeed;
@@ -37,23 +42,25 @@ class Puck {
 
   void edges() {
     // bounces when the puck touches the bottom or top of the screen
-    if (y < 0 + 25 || y > height) {
+    if (y < 0 + puck_radius / 2 || y > height - puck_radius / 2) {
       yspeed *= -1;
     }
     // calls reset() when the puck reaches either side of the screen
-    if (x > width + 25) {
+    if (x > width + puck_radius) {
       // leftScore++; LATER
-      reset();
+      // reset();
+      xspeed *= -1;
     }
-    if (x < 0) {
+    if (x < 0 - puck_radius) {
       // rightScore++; LATER
-      reset();
+      // reset();
+      xspeed *= -1;
     }
   }
-  
-   void show() {
+
+  void show() {
     fill(255);
     noStroke();
-    square(x - 12.5, y - 12.5, puck_radius); // the square gets drawn at the top left, subtracting by half it's size will put it fully centered
+    square(x, y, puck_radius); // the square gets drawn at the top left, subtracting by half it's size will put it fully centered
   }
 }

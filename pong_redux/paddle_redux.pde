@@ -30,7 +30,7 @@ class Paddle {
     if (goingUp == goingDown) { // if they're both true or false, accel equals 0
       acceleration = 0;
     }
-    
+
     velocity += acceleration; // acceleration
     velocity *= 0.89;
     y += velocity; // velocity
