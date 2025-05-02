@@ -8,7 +8,8 @@ Bird bird;
 
 String currentState = "";
 String[] states = {"title", "gameloop", "results"};
-
+float lastFlap;
+float currentTime; // framecount = lastflap - currenttime/framecount > last flap
 boolean playerPressUp;
 
 // SETUP
@@ -26,7 +27,7 @@ void draw () {
   bird.bottom();
 }
 
-void keyTyped() {
+void keyPressed() {
 
   if (key == ' ') {
     bird.flap();
