@@ -8,8 +8,8 @@ Bird bird;
 
 String currentState = "";
 String[] states = {"title", "gameloop", "results"};
-float lastFlap;
-float currentTime; // framecount = lastflap - currenttime/framecount > last flap
+int lastFlap;
+int currentTime; // framecount = lastflap - currenttime/framecount > last flap
 boolean playerPressUp;
 
 // SETUP

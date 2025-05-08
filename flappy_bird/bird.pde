@@ -6,7 +6,7 @@ class Bird {
   float gravity = 4;
   float velocity = 0;
   float lift = -45;
-  boolean gravityOn;
+  boolean gravityOn, doFlap, noFlap;
 
   // pulling the bird down with gravity
   void update() {
@@ -42,6 +42,9 @@ class Bird {
 
   void flap() {
     velocity = lift; // player jolts upwards
+    frameCount = lastFlap - currentTime;
+    if (frameCount > lastFlap) {
+    }
   }
 
 
