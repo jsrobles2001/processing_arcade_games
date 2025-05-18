@@ -23,6 +23,7 @@ class Bird {
     if (y < height) {
       gravityOn = true;
     }
+    frameCount = lastFlap - currentTime;
   }
 
   // if the bird touches the bottom of the screen
@@ -39,14 +40,11 @@ class Bird {
     }
   }
 
-
   void flap() {
     velocity = lift; // player jolts upwards
-    frameCount = lastFlap - currentTime;
     if (frameCount > lastFlap) {
     }
   }
-
 
   // drawing the bird
   void show() {

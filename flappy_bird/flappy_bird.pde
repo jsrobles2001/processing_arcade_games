@@ -22,6 +22,7 @@ void setup () {
 void draw () {
   background(0);
 
+  println(frameCount);
   bird.show();
   bird.update();
   bird.bottom();
