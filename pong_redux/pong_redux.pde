@@ -5,7 +5,7 @@
 /*
 ~~TO-DO LIST~~
  * Add states for title and results
- * Add paddles
+ * Add collision
  */
 
 // VARIABLES
