@@ -42,6 +42,7 @@ void draw() {
   right.show();
   left.update();
   right.update();
+  puck.paddleCollision(left);
   textFont(Arcade);
   text(leftScore, width / 2 - 432, 50);
   text(rightScore, width - 192, 50);
