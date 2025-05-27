@@ -4,8 +4,8 @@
 
 /*
 ~~TO-DO LIST~~
+ * Add collision points on paddles
  * Add states for title and results
- * Add collision
  */
 
 // VARIABLES

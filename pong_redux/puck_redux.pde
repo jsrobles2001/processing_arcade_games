@@ -14,20 +14,10 @@ class Puck {
 
   void paddleCollision(Paddle left) {
     if (y + puck_radius > left.y - left.h / 2.5 && y - puck_radius < left.y + left.h / 2.5) {
-    xspeed *= -1;
+      if (x - puck_radius <= left.x && x + puck_radius >= left.x) {
+        xspeed *= -1;
+      }
     }
-    
-    //if (y < left.y && x < left.x) {
-    //xspeed *= -1;
-    //}
-    
-    //if (y + puck_radius < left.y && x < left.x + left.w) {
-   // xspeed *= -1;
-   // }
-    
-    
-    
-    
   }
 
   // updating every frame
