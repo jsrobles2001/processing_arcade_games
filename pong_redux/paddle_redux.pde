@@ -41,6 +41,7 @@ class Paddle {
 
   // drawing paddles
   void show() {
+    //fill(255);
     rectMode(CENTER);
     rect(x, y, w, h);
   }

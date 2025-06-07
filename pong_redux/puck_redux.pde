@@ -6,17 +6,38 @@ class Puck {
   float xspeed;
   float yspeed;
   float puck_radius = 25;
-  boolean colliding;
+  boolean beforeX, afterX, beforeY, afterY
+    //, ballBefore, ballAfter
+    ;
 
   Puck() {
     reset();
   }
 
   void paddleCollision(Paddle left) {
-    if (y + puck_radius > left.y - left.h / 2.5 && y - puck_radius < left.y + left.h / 2.5) {
-      if (x - puck_radius <= left.x && x + puck_radius >= left.x) {
-        xspeed *= -1;
-      }
+
+    beforeX = true;
+    afterX = false;
+    beforeY = true;
+    afterY = false;
+
+    if (x + puck_radius >= left.x - left.w / 5
+      && x - puck_radius <= left.x + left.w / 5) {
+      beforeX = false;
+      afterX = true;
+      printf
+    }
+    if (y + puck_radius > left.y - left.h / 2.5
+      && y - puck_radius < left.y + left.h / 2.5) {
+      beforeY = false;
+      afterY = true;
+    }
+
+    if (x + puck_radius >= left.x - left.w / 5
+      && x - puck_radius <= left.x + left.w / 5
+      && y + puck_radius > left.y - left.h / 2.5
+      && y - puck_radius < left.y + left.h / 2.5) {
+      xspeed *= -1;
     }
   }
 
@@ -66,5 +87,8 @@ class Puck {
     fill(255);
     noStroke();
     square(x, y, puck_radius); // the square gets drawn at the top left, subtracting by half it's size will put it fully centered
+    noFill();
+    stroke(2);
+    square(x, y, puck_radius * 2);
   }
 }
