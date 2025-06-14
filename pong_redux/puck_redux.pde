@@ -24,19 +24,22 @@ class Puck {
     if (x + puck_radius >= left.x - left.w / 5
       && x - puck_radius <= left.x + left.w / 5) {
       beforeX = false;
+      println(beforeX, "for beforeX");
       afterX = true;
-      printf
+      println(afterX, "for afterX");
     }
-    if (y + puck_radius > left.y - left.h / 2.5
-      && y - puck_radius < left.y + left.h / 2.5) {
+    if (y + puck_radius < left.y - left.h / 2.5
+      && y - puck_radius > left.y + left.h / 2.5) {
       beforeY = false;
+      println(beforeY, "for beforeY");
       afterY = true;
+      println(afterY, "for afterY");
     }
 
     if (x + puck_radius >= left.x - left.w / 5
       && x - puck_radius <= left.x + left.w / 5
-      && y + puck_radius > left.y - left.h / 2.5
-      && y - puck_radius < left.y + left.h / 2.5) {
+      && y + puck_radius < left.y - left.h / 2.5
+      && y - puck_radius > left.y + left.h / 2.5) {
       xspeed *= -1;
     }
   }
